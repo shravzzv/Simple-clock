@@ -8,9 +8,13 @@ const updateClock = () => {
   const minutes = now.getMinutes()
   const hours = now.getHours()
 
-  const secDegree = seconds * 6
-  const minDegree = minutes * 6
-  const hourDegree = hours * 6
+  const secDegree = seconds * 6 + 90
+  const minDegree = minutes * 6 + 90
+  const hourDegree = hours * 30 + 90
+
+  secondHand.style.transform = `rotate(${secDegree}deg)`
+  minuteHand.style.transform = `rotate(${minDegree}deg)`
+  hourHand.style.transform = `rotate(${hourDegree}deg)`
 }
 
 setInterval(() => {

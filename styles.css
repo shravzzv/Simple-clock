@@ -3,3 +3,67 @@
 *::after {
   box-sizing: border-box;
 }
+
+:root {
+  --second-hand-background-color: red;
+  --minute-hand-background-color: black;
+  --hour-hand-background-color: black;
+  --clock-size: 70vmin;
+  --background-color: white;
+  --foreground-color: black;
+  --clock-background-color: white;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+.clock {
+  width: var(--clock-size);
+  height: var(--clock-size);
+  border-radius: 50%;
+  position: relative;
+  background-color: var(--clock-background-color);
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+.hand {
+  position: absolute;
+  height: 5px;
+  width: 45%;
+  top: 50%;
+  right: 50%;
+  transform-origin: right;
+  border-radius: 10px;
+}
+
+.hand-sec {
+  background-color: var(--second-hand-background-color);
+}
+.hand-min {
+  width: 30%;
+  background-color: var(--minute-hand-background-color);
+}
+.hand-hour {
+  background-color: var(--hour-hand-background-color);
+  width: 20%;
+}
+
+.clock::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--foreground-color);
+  border-radius: 50%;
+  top: calc(50% - 8px);
+  right: calc(50% - 10px);
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
